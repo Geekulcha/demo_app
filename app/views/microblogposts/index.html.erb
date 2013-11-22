@@ -1,0 +1,29 @@
+<h1>Listing microblogposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @microblogposts.each do |microblogpost| %>
+      <tr>
+        <td><%= microblogpost.content %></td>
+        <td><%= microblogpost.user_id %></td>
+        <td><%= link_to 'Show', microblogpost %></td>
+        <td><%= link_to 'Edit', edit_microblogpost_path(microblogpost) %></td>
+        <td><%= link_to 'Destroy', microblogpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Microblogpost', new_microblogpost_path %>
